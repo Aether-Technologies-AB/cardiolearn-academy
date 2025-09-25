@@ -102,6 +102,54 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(section);
     });
 
+    // Mobile Menu Functionality
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const mobileNav = document.getElementById('mobileNav');
+    const mobileCloseBtn = document.getElementById('mobileCloseBtn');
+    const body = document.body;
+
+    // Open mobile menu
+    mobileMenuToggle.addEventListener('click', () => {
+        mobileMenuToggle.classList.add('active');
+        mobileNav.classList.add('active');
+        body.style.overflow = 'hidden'; // Prevent body scrolling when menu is open
+    });
+
+    // Close mobile menu
+    mobileCloseBtn.addEventListener('click', () => {
+        mobileMenuToggle.classList.remove('active');
+        mobileNav.classList.remove('active');
+        body.style.overflow = ''; // Restore body scrolling
+    });
+
+    // Close mobile menu when clicking on nav links
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+    mobileNavLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenuToggle.classList.remove('active');
+            mobileNav.classList.remove('active');
+            body.style.overflow = '';
+        });
+    });
+
+    // Close mobile menu when clicking outside
+    mobileNav.addEventListener('click', (e) => {
+        if (e.target === mobileNav) {
+            mobileMenuToggle.classList.remove('active');
+            mobileNav.classList.remove('active');
+            body.style.overflow = '';
+        }
+    });
+
+    // Handle escape key to close menu
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
+            mobileMenuToggle.classList.remove('active');
+            mobileNav.classList.remove('active');
+            body.style.overflow = '';
+        }
+    });
+
     // Hero section should be visible immediately
     const heroSection = document.querySelector('.hero');
     if (heroSection) {
