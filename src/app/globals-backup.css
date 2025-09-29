@@ -1,7 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
   /* CardioLearn Academy Design System */
@@ -47,11 +48,11 @@ body {
   
   .btn-primary {
     @apply bg-blue-600 text-white px-6 py-3 rounded-lg font-medium transition-all duration-200 hover:scale-105;
-    background-color: var(--color-primary-blue) !important;
+    background-color: var(--color-primary-blue);
   }
   
   .btn-secondary {
-    @apply bg-transparent border px-6 py-3 rounded-lg font-medium transition-all duration-200;
+    @apply bg-transparent border px-6 py-3 rounded-lg font-medium transition-all duration-200 hover:bg-opacity-10;
     color: var(--color-primary-blue);
     border-color: var(--color-primary-blue);
   }
