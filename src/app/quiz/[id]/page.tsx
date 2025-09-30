@@ -25,7 +25,7 @@ export default function QuizPage({ params }: QuizPageProps) {
   // Mock attempt data
   const attempt = mockQuizAttempts[0];
   
-  const handleSubmit = (attemptData: any) => {
+  const handleSubmit = (attemptData: unknown) => {
     console.log('Quiz submitted:', attemptData);
     setShowResults(true);
   };

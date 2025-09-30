@@ -1,4 +1,5 @@
 // CardioLearn Academy - Course and Learning Content Types
+import { UserProgress } from './user';
 
 export interface Course {
   id: string;
@@ -72,7 +73,7 @@ export interface LessonContent {
   videoThumbnail?: string;
   videoDuration?: number;
   readingContent?: string;
-  interactiveContent?: any;
+  interactiveContent?: Record<string, unknown>;
   caseStudyData?: CaseStudy;
   downloadableResources?: CourseResource[];
 }
@@ -89,7 +90,7 @@ export interface CaseStudy {
   diagnosticData: {
     ecg?: string;
     echo?: string;
-    labs?: any;
+    labs?: Record<string, unknown>;
     imaging?: string[];
   };
   questions: CaseQuestion[];

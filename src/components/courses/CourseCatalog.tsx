@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useMemo } from 'react';
-import { Search, Filter, Clock, Star, Users, Play, Book, Award, ChevronDown } from 'lucide-react';
+import { Search, Grid, List, Clock, Star, Users, Play, Book, Award } from 'lucide-react';
 import { Course, CardiologySpecialty, CourseLevel } from '@/types/course';
 
 interface CourseCatalogProps {
@@ -15,11 +15,11 @@ export default function CourseCatalog({ courses, onEnroll }: CourseCatalogProps)
   const [selectedLevel, setSelectedLevel] = useState<CourseLevel | 'all'>('all');
   const [sortBy, setSortBy] = useState<'title' | 'rating' | 'duration' | 'enrollment'>('rating');
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
-  const [showFilters, setShowFilters] = useState(false);
+  // const [showFilters, setShowFilters] = useState(false); // Removed for now
 
   // Filter and sort courses
   const filteredCourses = useMemo(() => {
-    let filtered = courses.filter(course => {
+    const filtered = courses.filter(course => {
       const matchesSearch = course.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
                            course.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
                            course.instructor.name.toLowerCase().includes(searchTerm.toLowerCase());

@@ -103,7 +103,7 @@ const clinicalGeneralModules: CourseModule[] = [
         title: 'Interpretación sistemática del ECG',
         type: LessonType.INTERACTIVE,
         content: {
-          interactiveContent: 'ecg-interpretation-simulator'
+          interactiveContent: { type: 'ecg-interpretation-simulator' }
         },
         duration: 45,
         order: 3
@@ -184,7 +184,7 @@ export const mockCourses: Course[] = [
     thumbnail: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&h=400&fit=crop',
     instructor: instructors[0],
     specialty: CourseCardiologySpecialty.CLINICAL_GENERAL,
-    level: 'intermediate' as any,
+    level: CourseLevel.INTERMEDIATE,
     duration: 12,
     totalModules: 4,
     totalLessons: 16,
@@ -235,7 +235,7 @@ export const mockCourses: Course[] = [
     thumbnail: 'https://images.unsplash.com/photo-1551601651-2a8555f1a136?w=600&h=400&fit=crop',
     instructor: instructors[0],
     specialty: CourseCardiologySpecialty.INTERVENTIONAL,
-    level: 'advanced' as any,
+    level: CourseLevel.ADVANCED,
     duration: 20,
     totalModules: 6,
     totalLessons: 24,
@@ -288,7 +288,7 @@ export const mockCourses: Course[] = [
     thumbnail: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=600&h=400&fit=crop',
     instructor: instructors[1],
     specialty: CourseCardiologySpecialty.RESEARCH_ADVANCES,
-    level: 'expert' as any,
+    level: CourseLevel.EXPERT,
     duration: 18,
     totalModules: 5,
     totalLessons: 20,
@@ -324,7 +324,7 @@ export const mockCourses: Course[] = [
     thumbnail: 'https://images.unsplash.com/photo-1551884170-09fb70a3a2ed?w=600&h=400&fit=crop',
     instructor: instructors[2],
     specialty: CourseCardiologySpecialty.CARDIOVASCULAR_IMAGING,
-    level: 'advanced' as any,
+    level: CourseLevel.ADVANCED,
     duration: 16,
     totalModules: 5,
     totalLessons: 22,
@@ -367,7 +367,7 @@ export const mockCourses: Course[] = [
     thumbnail: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=400&fit=crop',
     instructor: instructors[0],
     specialty: CourseCardiologySpecialty.SPORTS_REHABILITATION,
-    level: 'intermediate' as any,
+    level: CourseLevel.INTERMEDIATE,
     duration: 10,
     totalModules: 4,
     totalLessons: 15,
@@ -410,7 +410,7 @@ export const mockCourses: Course[] = [
     thumbnail: 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=600&h=400&fit=crop',
     instructor: instructors[2],
     specialty: CourseCardiologySpecialty.PREVENTION_NUTRITION,
-    level: 'beginner' as any,
+    level: CourseLevel.BEGINNER,
     duration: 8,
     totalModules: 3,
     totalLessons: 12,
@@ -515,7 +515,7 @@ export const mockUserStats = {
       name: 'Primera Certificación',
       description: 'Completaste tu primer curso con éxito',
       icon: '🎯',
-      category: 'completion' as any,
+      category: AchievementCategory.COMPLETION,
       earnedAt: new Date('2024-01-21')
     },
     {
@@ -523,7 +523,7 @@ export const mockUserStats = {
       name: 'Estudiante Constante',
       description: 'Mantuviste una racha de 7 días consecutivos',
       icon: '🔥',
-      category: 'consistency' as any,
+      category: AchievementCategory.CONSISTENCY,
       earnedAt: new Date('2024-01-25')
     },
     {
@@ -531,7 +531,7 @@ export const mockUserStats = {
       name: 'Especialista en Deporte',
       description: 'Dominaste la cardiología del deporte',
       icon: '🏃‍♂️',
-      category: 'specialty' as any,
+      category: AchievementCategory.SPECIALTY,
       earnedAt: new Date('2024-01-21')
     }
   ]

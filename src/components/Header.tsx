@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 // import { useAuth } from '@/contexts/AuthContext'; // Temporarily disabled
-import { Search, Menu, X, User, LogIn, Heart } from 'lucide-react';
+import { Search, Menu, X, Heart } from 'lucide-react';
 
 const Header = () => {
   // const { user, logout } = useAuth(); // Temporarily disabled

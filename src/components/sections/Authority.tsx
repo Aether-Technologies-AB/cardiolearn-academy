@@ -86,7 +86,7 @@ const Authority = () => {
             <div key={testimonial.id} className="bg-neutral-black rounded-2xl p-8 border border-neutral-medium-grey">
               <div className="mb-6">
                 <p className="text-lg text-white leading-relaxed italic">
-                  "{testimonial.quote}"
+                  &ldquo;{testimonial.quote}&rdquo;
                 </p>
               </div>
               <div className="flex items-center gap-4">
