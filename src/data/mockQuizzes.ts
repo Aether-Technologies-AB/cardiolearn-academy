@@ -217,10 +217,10 @@ export const mockQuizzes: Quiz[] = [
     title: 'Test de Práctica: Interpretación de ECG',
     description: 'Practica tu interpretación electrocardiográfica sin límite de tiempo',
     type: QuizType.PRACTICE_TEST,
-    timeLimit: null, // No time limit
+    timeLimit: undefined, // No time limit
     totalQuestions: 4,
     passingScore: 60,
-    maxAttempts: null, // Unlimited attempts
+    maxAttempts: undefined, // Unlimited attempts
     questions: ecgQuestions.map(q => ({ ...q, id: `practice_${q.id}`, quizId: 'quiz_practice_ecg' })),
     isRandomized: true,
     showResults: 'immediate',
