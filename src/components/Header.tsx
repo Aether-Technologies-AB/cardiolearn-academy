@@ -143,28 +143,28 @@ const Header = () => {
               </div>
             </div>
 
-            {/* Mobile Navigation Links */}
+            {/* Mobile Navigation Links - SYNCED WITH DESKTOP */}
             <nav className="flex flex-col gap-4 mb-8">
               <Link 
-                href="/cursos" 
+                href="/courses" 
                 className="text-white text-lg py-3 border-b border-neutral-medium-grey hover:text-primary-blue transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Cursos
               </Link>
               <Link 
-                href="/residentes" 
+                href="/dashboard" 
                 className="text-white text-lg py-3 border-b border-neutral-medium-grey hover:text-primary-blue transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                Residentes
+                Dashboard
               </Link>
               <Link 
-                href="/investigacion" 
+                href="/quiz/preview" 
                 className="text-white text-lg py-3 border-b border-neutral-medium-grey hover:text-primary-blue transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                Investigación
+                Evaluaciones
               </Link>
               <Link 
                 href="/cme-vivo" 
