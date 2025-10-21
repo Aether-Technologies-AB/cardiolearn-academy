@@ -199,7 +199,7 @@ function CourseCard({ course, onEnroll }: CourseCardProps) {
           className="w-full h-48 object-cover"
         />
         {course.isLive && (
-          <div className="absolute top-4 left-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+          <div className="absolute top-4 left-4 bg-primary-red text-white px-3 py-1 rounded-full text-sm font-medium">
             🔴 En Vivo
           </div>
         )}
@@ -243,7 +243,7 @@ function CourseCard({ course, onEnroll }: CourseCardProps) {
         {/* Course Stats */}
         <div className="flex items-center gap-4 mb-4 text-sm text-neutral-light-grey">
           <div className="flex items-center gap-1">
-            <Star className="w-4 h-4 text-yellow-500 fill-current" />
+            <Star className="w-4 h-4 text-accent-gold fill-current" />
             <span>{course.averageRating.toFixed(1)}</span>
           </div>
           <div className="flex items-center gap-1">
@@ -284,7 +284,7 @@ function CourseCard({ course, onEnroll }: CourseCardProps) {
 
         {/* Certification Badge */}
         {course.certificationOffered && (
-          <div className="mt-3 flex items-center gap-2 text-yellow-500 text-sm">
+          <div className="mt-3 flex items-center gap-2 text-accent-gold text-sm">
             <Award className="w-4 h-4" />
             <span>Certificado incluido</span>
           </div>
@@ -306,7 +306,7 @@ function CourseListItem({ course, onEnroll }: CourseCardProps) {
             className="w-32 h-24 object-cover rounded-lg"
           />
           {course.isLive && (
-            <div className="absolute top-2 left-2 bg-red-500 text-white px-2 py-0.5 rounded text-xs">
+            <div className="absolute top-2 left-2 bg-primary-red text-white px-2 py-0.5 rounded text-xs">
               🔴 En Vivo
             </div>
           )}
@@ -356,7 +356,7 @@ function CourseListItem({ course, onEnroll }: CourseCardProps) {
                 <span>{course.instructor.name}</span>
               </div>
               <div className="flex items-center gap-1">
-                <Star className="w-4 h-4 text-yellow-500 fill-current" />
+                <Star className="w-4 h-4 text-accent-gold fill-current" />
                 <span>{course.averageRating.toFixed(1)} ({course.totalReviews})</span>
               </div>
               <div className="flex items-center gap-1">

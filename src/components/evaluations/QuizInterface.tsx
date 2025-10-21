@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Clock, AlertCircle, Check, X, ChevronLeft, ChevronRight, Flag, RotateCcw } from 'lucide-react';
-import { Quiz, Question, QuizAttempt, UserAnswer } from '@/types/evaluation';
+import { Quiz, Question, QuizAttempt, UserAnswer, QuestionDifficulty } from '@/types/evaluation';
 
 interface QuizInterfaceProps {
   quiz: Quiz;
@@ -133,7 +133,7 @@ export default function QuizInterface({ quiz, onSubmit, onExit, isPreview = fals
             <div className="flex items-center gap-6">
               <h1 className="text-xl font-semibold text-white">{quiz.title}</h1>
               {isPreview && (
-                <span className="px-3 py-1 bg-yellow-500/20 text-yellow-500 rounded-full text-sm font-medium">
+                <span className="px-3 py-1 bg-accent-gold/20 text-accent-gold rounded-full text-sm font-medium">
                   Vista Previa
                 </span>
               )}
@@ -144,9 +144,9 @@ export default function QuizInterface({ quiz, onSubmit, onExit, isPreview = fals
               {timeRemaining && !isPreview && (
                 <div className={`flex items-center gap-2 px-4 py-2 rounded-lg ${
                   timeRemaining <= 300 
-                    ? 'bg-red-500/20 text-red-400' 
+                    ? 'bg-primary-red/20 text-primary-red' 
                     : timeRemaining <= 900 
-                    ? 'bg-yellow-500/20 text-yellow-400'
+                    ? 'bg-accent-gold/20 text-accent-gold'
                     : 'bg-neutral-medium-grey text-neutral-light-grey'
                 }`}>
                   <Clock className="w-4 h-4" />
@@ -184,7 +184,7 @@ export default function QuizInterface({ quiz, onSubmit, onExit, isPreview = fals
 
       {/* Warning Banner */}
       {showWarning && timeRemaining && timeRemaining <= 300 && (
-        <div className="bg-red-500/10 border-y border-red-500/30 py-3">
+        <div className="bg-primary-red/10 border-y border-primary-red/30 py-3">
           <div className="container-custom">
             <div className="flex items-center gap-3 text-red-400">
               <AlertCircle className="w-5 h-5" />
@@ -226,7 +226,7 @@ export default function QuizInterface({ quiz, onSubmit, onExit, isPreview = fals
                     >
                       {index + 1}
                       {isFlagged && (
-                        <Flag className="w-3 h-3 text-yellow-500 absolute -top-1 -right-1" fill="currentColor" />
+                        <Flag className="w-3 h-3 text-accent-gold absolute -top-1 -right-1" fill="currentColor" />
                       )}
                     </button>
                   );
@@ -244,7 +244,7 @@ export default function QuizInterface({ quiz, onSubmit, onExit, isPreview = fals
                   <span className="text-neutral-light-grey">Sin responder</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Flag className="w-4 h-4 text-yellow-500" />
+                  <Flag className="w-4 h-4 text-accent-gold" />
                   <span className="text-neutral-light-grey">Marcada</span>
                 </div>
               </div>
@@ -264,7 +264,11 @@ export default function QuizInterface({ quiz, onSubmit, onExit, isPreview = fals
                     <span className="px-3 py-1 bg-neutral-medium-grey text-neutral-light-grey rounded-full text-sm">
                       {currentQuestion.points} punto{currentQuestion.points !== 1 ? 's' : ''}
                     </span>
-                    <span className="px-3 py-1 bg-neutral-medium-grey text-neutral-light-grey rounded-full text-sm">
+                    <span className={`px-3 py-1 rounded-full text-sm font-medium ${
+                      currentQuestion.difficulty === QuestionDifficulty.HARD || currentQuestion.difficulty === QuestionDifficulty.EXPERT
+                        ? 'bg-primary-red/20 text-primary-red'
+                        : 'bg-neutral-medium-grey text-neutral-light-grey'
+                    }`}>
                       {getDifficultyLabel(currentQuestion.difficulty)}
                     </span>
                   </div>
@@ -273,8 +277,8 @@ export default function QuizInterface({ quiz, onSubmit, onExit, isPreview = fals
                   onClick={() => toggleFlag(currentQuestion.id)}
                   className={`p-2 rounded-lg transition-colors ${
                     flaggedQuestions.has(currentQuestion.id)
-                      ? 'bg-yellow-500/20 text-yellow-500'
-                      : 'bg-neutral-medium-grey text-neutral-light-grey hover:text-yellow-500'
+                      ? 'bg-accent-gold/20 text-accent-gold'
+                      : 'bg-neutral-medium-grey text-neutral-light-grey hover:text-accent-gold'
                   }`}
                 >
                   <Flag className="w-5 h-5" />

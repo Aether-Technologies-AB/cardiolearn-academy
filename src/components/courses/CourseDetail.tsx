@@ -51,7 +51,7 @@ export default function CourseDetail({ course, isEnrolled = false, userProgress,
               {/* Course Stats */}
               <div className="flex flex-wrap items-center gap-6 text-neutral-light-grey">
                 <div className="flex items-center gap-2">
-                  <Star className="w-5 h-5 text-yellow-500 fill-current" />
+                  <Star className="w-5 h-5 text-accent-gold fill-current" />
                   <span className="font-medium text-white">{course.averageRating.toFixed(1)}</span>
                   <span>({course.totalReviews} reseñas)</span>
                 </div>
@@ -75,7 +75,7 @@ export default function CourseDetail({ course, isEnrolled = false, userProgress,
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                   {course.learningObjectives.map((objective, index) => (
                     <div key={index} className="flex items-start gap-3">
-                      <Check className="w-5 h-5 text-primary-teal flex-shrink-0 mt-0.5" />
+                      <Check className="w-5 h-5 text-accent-teal flex-shrink-0 mt-0.5" />
                       <span className="text-neutral-light-grey">{objective}</span>
                     </div>
                   ))}
@@ -97,7 +97,7 @@ export default function CourseDetail({ course, isEnrolled = false, userProgress,
                     <Play className="w-12 h-12 text-white" />
                   </div>
                   {course.isLive && (
-                    <div className="absolute top-4 left-4 bg-red-500 text-white px-3 py-2 rounded-full text-sm font-medium">
+                    <div className="absolute top-4 left-4 bg-primary-red text-white px-3 py-2 rounded-full text-sm font-medium">
                       🔴 Clase en Vivo
                     </div>
                   )}
@@ -117,7 +117,7 @@ export default function CourseDetail({ course, isEnrolled = false, userProgress,
                       </div>
                     </div>
                   ) : (
-                    <div className="text-3xl font-bold text-primary-teal">GRATIS</div>
+                    <div className="text-3xl font-bold text-accent-teal">GRATIS</div>
                   )}
                 </div>
 
@@ -157,11 +157,11 @@ export default function CourseDetail({ course, isEnrolled = false, userProgress,
                 {/* Course Features */}
                 <div className="space-y-3 text-sm">
                   <div className="flex items-center gap-3 text-neutral-light-grey">
-                    <Award className="w-4 h-4 text-yellow-500" />
+                    <Award className="w-4 h-4 text-accent-gold" />
                     <span>Certificado de finalización</span>
                   </div>
                   <div className="flex items-center gap-3 text-neutral-light-grey">
-                    <Download className="w-4 h-4 text-primary-teal" />
+                    <Download className="w-4 h-4 text-accent-teal" />
                     <span>Recursos descargables</span>
                   </div>
                   <div className="flex items-center gap-3 text-neutral-light-grey">
@@ -417,7 +417,7 @@ function InstructorTab({ instructor }: { instructor: Course['instructor'] }) {
           <p className="text-lg text-primary-blue mb-4">{instructor.title}</p>
           <div className="flex items-center gap-6 text-sm text-neutral-light-grey mb-4">
             <div className="flex items-center gap-2">
-              <Star className="w-4 h-4 text-yellow-500 fill-current" />
+              <Star className="w-4 h-4 text-accent-gold fill-current" />
               <span>{instructor.rating.toFixed(1)} rating</span>
             </div>
             <span>{instructor.coursesCount} cursos</span>
@@ -433,7 +433,7 @@ function InstructorTab({ instructor }: { instructor: Course['instructor'] }) {
         <ul className="space-y-2">
           {instructor.credentials.map((credential, index) => (
             <li key={index} className="flex items-start gap-3">
-              <Award className="w-4 h-4 text-yellow-500 flex-shrink-0 mt-1" />
+              <Award className="w-4 h-4 text-accent-gold flex-shrink-0 mt-1" />
               <span className="text-neutral-light-grey">{credential}</span>
             </li>
           ))}
@@ -484,7 +484,7 @@ function ReviewsTab({ courseId }: { courseId: string }) {
                     {[...Array(5)].map((_, i) => (
                       <Star 
                         key={i}
-                        className={`w-4 h-4 ${i < review.rating ? 'text-yellow-500 fill-current' : 'text-neutral-medium-grey'}`}
+                        className={`w-4 h-4 ${i < review.rating ? 'text-accent-gold fill-current' : 'text-neutral-medium-grey'}`}
                       />
                     ))}
                   </div>

@@ -61,7 +61,7 @@ const Teachers = () => {
               </div>
               
               <div className="flex items-center justify-between text-sm">
-                <div className="flex items-center gap-1 text-yellow-400">
+                <div className="flex items-center gap-1 text-accent-gold">
                   <Star className="w-4 h-4 fill-current" />
                   <span>{teacher.rating}</span>
                 </div>

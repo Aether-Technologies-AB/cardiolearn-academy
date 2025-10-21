@@ -72,7 +72,7 @@ const Hero = () => {
             <div className="text-neutral-light-grey">Hospitales Afiliados</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold text-primary-blue mb-2">15,000+</div>
+            <div className="text-3xl md:text-4xl font-bold text-primary-red mb-2">15,000+</div>
             <div className="text-neutral-light-grey">Profesionales Activos</div>
           </div>
           <div className="text-center">
@@ -80,7 +80,7 @@ const Hero = () => {
             <div className="text-neutral-light-grey">Horas de Content</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold text-primary-blue mb-2">95%</div>
+            <div className="text-3xl md:text-4xl font-bold text-primary-red mb-2">95%</div>
             <div className="text-neutral-light-grey">Satisfacción</div>
           </div>
         </div>

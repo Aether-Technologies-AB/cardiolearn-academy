@@ -26,7 +26,7 @@ export default function QuizResults({ quiz, attempt, questionResults, onRetake, 
   const getPerformanceColor = (score: number) => {
     if (score >= 90) return 'text-green-400';
     if (score >= 80) return 'text-primary-teal';
-    if (score >= 70) return 'text-yellow-400';
+    if (score >= 70) return 'text-accent-gold';
     if (score >= 60) return 'text-orange-400';
     return 'text-red-400';
   };
@@ -48,7 +48,7 @@ export default function QuizResults({ quiz, attempt, questionResults, onRetake, 
         {/* Results Header */}
         <div className="text-center mb-8">
           <div className={`inline-flex items-center justify-center w-24 h-24 rounded-full mb-6 ${
-            isPassed ? 'bg-green-500/20' : 'bg-red-500/20'
+            isPassed ? 'bg-accent-teal/20' : 'bg-primary-red/20'
           }`}>
             {isPassed ? (
               <CheckCircle className="w-12 h-12 text-green-400" />
@@ -114,7 +114,7 @@ export default function QuizResults({ quiz, attempt, questionResults, onRetake, 
               <div
                 className={`h-3 rounded-full transition-all duration-1000 ${
                   accuracyPercentage >= 70 ? 'bg-green-400' : 
-                  accuracyPercentage >= 50 ? 'bg-yellow-400' : 'bg-red-400'
+                  accuracyPercentage >= 50 ? 'bg-accent-gold' : 'bg-primary-red'
                 }`}
                 style={{ width: `${accuracyPercentage}%` }}
               />
@@ -138,13 +138,13 @@ export default function QuizResults({ quiz, attempt, questionResults, onRetake, 
 
         {/* Pass/Fail Status and Actions */}
         <div className={`rounded-xl p-6 mb-8 ${
-          isPassed ? 'bg-green-500/10 border border-green-500/30' : 'bg-red-500/10 border border-red-500/30'
+          isPassed ? 'bg-accent-teal/10 border border-accent-teal/30' : 'bg-primary-red/10 border border-primary-red/30'
         }`}>
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
               {isPassed ? (
                 <>
-                  <Trophy className="w-8 h-8 text-yellow-500" />
+                  <Trophy className="w-8 h-8 text-accent-gold" />
                   <div>
                     <h3 className="text-xl font-semibold text-green-400 mb-1">
                       ¡Evaluación Aprobada!
@@ -224,7 +224,7 @@ export default function QuizResults({ quiz, attempt, questionResults, onRetake, 
                     <div
                       className={`h-2 rounded-full ${
                         category.percentage >= 80 ? 'bg-green-400' : 
-                        category.percentage >= 60 ? 'bg-yellow-400' : 'bg-red-400'
+                        category.percentage >= 60 ? 'bg-accent-gold' : 'bg-primary-red'
                       }`}
                       style={{ width: `${category.percentage}%` }}
                     />
@@ -349,7 +349,7 @@ function QuestionResultItem({ result, questionNumber, isSelected, onClick }: Que
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className={`w-8 h-8 rounded-full flex items-center justify-center ${
-              result.isCorrect ? 'bg-green-500/20' : 'bg-red-500/20'
+              result.isCorrect ? 'bg-accent-teal/20' : 'bg-primary-red/20'
             }`}>
               {result.isCorrect ? (
                 <CheckCircle className="w-5 h-5 text-green-400" />
@@ -386,7 +386,7 @@ function QuestionResultItem({ result, questionNumber, isSelected, onClick }: Que
                   <span
                     key={index}
                     className={`px-3 py-1 rounded-lg text-sm ${
-                      result.isCorrect ? 'bg-green-500/20 text-green-400' : 'bg-red-500/20 text-red-400'
+                      result.isCorrect ? 'bg-accent-teal/20 text-accent-teal' : 'bg-primary-red/20 text-primary-red'
                     }`}
                   >
                     {answer}
@@ -402,7 +402,7 @@ function QuestionResultItem({ result, questionNumber, isSelected, onClick }: Que
                   {result.correctAnswer.map((answer, index) => (
                     <span
                       key={index}
-                      className="px-3 py-1 rounded-lg text-sm bg-green-500/20 text-green-400"
+                      className="px-3 py-1 rounded-lg text-sm bg-accent-teal/20 text-accent-teal"
                     >
                       {answer}
                     </span>

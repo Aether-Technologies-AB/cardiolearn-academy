@@ -4,15 +4,41 @@
 @tailwind utilities;
 
 :root {
-  /* CardioLearn Academy Design System */
-  --color-primary-blue: #2563eb;
-  --color-primary-red: #dc2626;
-  --color-accent-teal: #0891b2;
-  --color-neutral-black: #121822;
-  --color-neutral-dark-grey: #1F2937;
-  --color-neutral-medium-grey: #4B5563;
-  --color-neutral-light-grey: #9CA3AF;
-  --color-neutral-white: #FFFFFF;
+  /* CardioLearn Academy Design System - Enhanced Medical Palette */
+  
+  /* PRIMARY FOUNDATION COLORS - Blue, Red, White */
+  --color-primary-blue: #1e40af;        /* Medical Blue - Primary brand color */
+  --color-primary-red: #dc2626;         /* Cardiac Red - Primary alert/heart color */
+  --color-primary-white: #ffffff;       /* Pure White - Primary clean/background color */
+  
+  /* SECONDARY SUPPORTING COLORS */
+  --color-secondary-teal: #0891b2;      /* Surgical Teal - Technology & precision */
+  --color-secondary-gold: #f59e0b;      /* Achievement Gold - Success & certification */
+  --color-secondary-navy: #1e293b;      /* Deep Navy - Depth & stability */
+  --color-secondary-silver: #e5e7eb;    /* Medical Silver - Sophistication */
+  --color-secondary-purple: #7c3aed;    /* Medical Purple - Specialization */
+  
+  /* Neutral Foundation */
+  --color-charcoal-black: #0f172a;      /* Charcoal Black - Deep Background */
+  --color-slate-gray: #334155;          /* Slate Gray - Secondary Background */
+  --color-medium-gray: #64748b;         /* Medium Gray - Text & Borders */
+  --color-light-gray: #94a3b8;          /* Light Gray - Subtle Elements */
+  
+  /* Legacy Support (maintain compatibility) */
+  --color-cardiac-red: var(--color-primary-red);
+  --color-pure-white: var(--color-primary-white);
+  --color-surgical-teal: var(--color-secondary-teal);
+  --color-warm-gold: var(--color-secondary-gold);
+  --color-deep-navy: var(--color-secondary-navy);
+  --color-platinum-silver: var(--color-secondary-silver);
+  --color-medical-purple: var(--color-secondary-purple);
+  --color-accent-teal: var(--color-secondary-teal);
+  --color-accent-gold: var(--color-secondary-gold);
+  --color-neutral-black: var(--color-charcoal-black);
+  --color-neutral-dark-grey: var(--color-slate-gray);
+  --color-neutral-medium-grey: var(--color-medium-gray);
+  --color-neutral-light-grey: var(--color-light-gray);
+  --color-neutral-white: var(--color-primary-white);
 }
 
 * {

@@ -49,7 +49,7 @@ export default function UserDashboard({ user, progress, certifications, stats }:
                   <div className="text-sm text-neutral-light-grey">Horas de Estudio</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-yellow-500">{stats.totalCertificates}</div>
+                  <div className="text-2xl font-bold text-accent-gold">{stats.totalCertificates}</div>
                   <div className="text-sm text-neutral-light-grey">Certificados</div>
                 </div>
               </div>
@@ -159,7 +159,7 @@ function OverviewTab({ progress, stats }: { progress: UserProgress[]; stats: Use
       {/* Recent Achievements */}
       <div className="bg-neutral-dark-grey rounded-xl p-6">
         <h2 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
-          <Trophy className="w-5 h-5 text-yellow-500" />
+          <Trophy className="w-5 h-5 text-accent-gold" />
           Logros Recientes
         </h2>
         <div className="space-y-4">
@@ -200,7 +200,7 @@ function OverviewTab({ progress, stats }: { progress: UserProgress[]; stats: Use
           {stats.rank && (
             <div className="flex justify-between items-center py-2">
               <span className="text-neutral-light-grey">Ranking</span>
-              <span className="text-yellow-500 font-medium">#{stats.rank}</span>
+              <span className="text-accent-gold font-medium">#{stats.rank}</span>
             </div>
           )}
         </div>
@@ -265,7 +265,7 @@ function CertificatesTab({ certifications }: { certifications: UserCertification
         {certifications.map((cert) => (
           <div key={cert.id} className="border border-neutral-medium-grey rounded-lg p-6 bg-gradient-to-br from-primary-blue/10 to-accent-teal/10">
             <div className="flex items-center gap-3 mb-4">
-              <Award className="w-6 h-6 text-yellow-500" />
+              <Award className="w-6 h-6 text-accent-gold" />
               <h3 className="text-lg font-medium text-white">{cert.courseName}</h3>
             </div>
             <div className="text-sm text-neutral-light-grey space-y-2 mb-4">

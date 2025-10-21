@@ -34,7 +34,7 @@ const LearningPaths = () => {
       title: "Cardiología Preventiva",
       modules: "16 módulos de aprendizaje",
       description: "Estrategias de prevención primaria y secundaria en medicina cardiovascular",
-      color: "bg-green-600",
+      color: "bg-secondary-teal",
     },
     {
       id: 5,
@@ -42,7 +42,7 @@ const LearningPaths = () => {
       title: "Cardiología Pediátrica",
       modules: "20 módulos de aprendizaje",
       description: "Manejo integral de cardiopatías congénitas y adquiridas en pediatría",
-      color: "bg-purple-600",
+      color: "bg-primary-red",
     },
     {
       id: 6,
