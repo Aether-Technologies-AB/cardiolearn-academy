@@ -55,6 +55,9 @@ const Header = () => {
               <Link href="/courses" className="text-white hover:text-primary-blue transition-colors">
                 Cursos
               </Link>
+              <Link href="/aula-virtual" className="text-white hover:text-primary-red transition-colors">
+                Aula Virtual
+              </Link>
               <Link href="/dashboard" className="text-white hover:text-primary-blue transition-colors">
                 Dashboard
               </Link>
@@ -151,6 +154,13 @@ const Header = () => {
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Cursos
+              </Link>
+              <Link 
+                href="/aula-virtual" 
+                className="text-white text-lg py-3 border-b border-neutral-medium-grey hover:text-primary-red transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Aula Virtual
               </Link>
               <Link 
                 href="/dashboard" 
