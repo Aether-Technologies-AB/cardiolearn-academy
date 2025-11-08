@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { DM_Sans, Inter } from 'next/font/google'
 import './globals.css'
-// import { AuthProvider } from '@/contexts/AuthContext' // Temporarily disabled
+import { AuthProvider } from '@/contexts/AuthContext'
 
 const dmSans = DM_Sans({ 
   subsets: ['latin'],
@@ -33,7 +33,9 @@ export default function RootLayout({
         }}
         suppressHydrationWarning
       >
-        {children}
+        <AuthProvider>
+          {children}
+        </AuthProvider>
       </body>
     </html>
   );

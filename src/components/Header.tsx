@@ -2,22 +2,30 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-// import { useAuth } from '@/contexts/AuthContext'; // Temporarily disabled
-import { Search, Menu, X, Heart } from 'lucide-react';
+import { useAuth } from '@/contexts/AuthContext';
+import { Search, Menu, X, Heart, User, LogOut } from 'lucide-react';
+import AuthModal from '@/components/auth/AuthModal';
 
 const Header = () => {
-  // const { user, logout } = useAuth(); // Temporarily disabled
-  const user = null; // Mock user state for development
+  const { user, logout } = useAuth();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  const [authModalOpen, setAuthModalOpen] = useState(false);
+  const [authMode, setAuthMode] = useState<'login' | 'signup'>('login');
 
   const handleLogout = async () => {
     try {
-      // await logout(); // Temporarily disabled
+      await logout();
       setMobileMenuOpen(false);
     } catch (error) {
       console.error('Error logging out:', error);
     }
+  };
+
+  const openAuthModal = (mode: 'login' | 'signup') => {
+    setAuthMode(mode);
+    setAuthModalOpen(true);
+    setMobileMenuOpen(false);
   };
 
   return (
@@ -79,17 +87,35 @@ const Header = () => {
                   <Link href="/dashboard" className="text-white hover:text-primary-blue transition-colors">
                     Dashboard
                   </Link>
+                  <div className="flex items-center gap-2">
+                    <div className="w-8 h-8 bg-gradient-to-br from-primary-blue to-secondary-teal rounded-full flex items-center justify-center">
+                      <User className="w-4 h-4 text-white" />
+                    </div>
+                    <span className="text-white text-sm">{user.email?.split('@')[0]}</span>
+                  </div>
                   <button 
                     onClick={handleLogout}
-                    className="btn-secondary text-sm"
+                    className="flex items-center gap-2 px-3 py-2 bg-neutral-medium-grey hover:bg-neutral-light-grey/20 rounded-lg transition-colors text-white text-sm"
                   >
+                    <LogOut className="w-4 h-4" />
                     Cerrar Sesión
                   </button>
                 </div>
               ) : (
-                <Link href="/login" className="btn-primary">
-                  Acceder
-                </Link>
+                <div className="flex items-center gap-3">
+                  <button 
+                    onClick={() => openAuthModal('login')}
+                    className="text-white hover:text-primary-blue transition-colors"
+                  >
+                    Iniciar Sesión
+                  </button>
+                  <button 
+                    onClick={() => openAuthModal('signup')}
+                    className="btn-primary"
+                  >
+                    Registrarse
+                  </button>
+                </div>
               )}
             </nav>
 
@@ -219,26 +245,31 @@ const Header = () => {
                 </>
               ) : (
                 <>
-                  <Link 
-                    href="/login" 
-                    className="btn-primary text-center"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    Acceder
-                  </Link>
-                  <Link 
-                    href="/registro" 
+                  <button 
+                    onClick={() => openAuthModal('login')}
                     className="btn-secondary text-center"
-                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Iniciar Sesión
+                  </button>
+                  <button 
+                    onClick={() => openAuthModal('signup')}
+                    className="btn-primary text-center"
                   >
                     Registrarse Gratis
-                  </Link>
+                  </button>
                 </>
               )}
             </div>
           </div>
         </div>
       )}
+
+      {/* Authentication Modal */}
+      <AuthModal 
+        isOpen={authModalOpen}
+        onClose={() => setAuthModalOpen(false)}
+        initialMode={authMode}
+      />
     </>
   );
 };
