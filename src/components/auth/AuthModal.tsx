@@ -49,15 +49,16 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, initialMode = 'l
       setPassword('');
       setConfirmPassword('');
       setFullName('');
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Auth error:', error);
-      if (error.code === 'auth/user-not-found') {
+      const firebaseError = error as { code?: string };
+      if (firebaseError.code === 'auth/user-not-found') {
         setError('Usuario no encontrado');
-      } else if (error.code === 'auth/wrong-password') {
+      } else if (firebaseError.code === 'auth/wrong-password') {
         setError('Contraseña incorrecta');
-      } else if (error.code === 'auth/email-already-in-use') {
+      } else if (firebaseError.code === 'auth/email-already-in-use') {
         setError('Este email ya está registrado');
-      } else if (error.code === 'auth/invalid-email') {
+      } else if (firebaseError.code === 'auth/invalid-email') {
         setError('Email inválido');
       } else {
         setError('Error de autenticación. Por favor, inténtalo de nuevo.');
@@ -73,7 +74,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, initialMode = 'l
     try {
       await signInWithGoogle();
       onClose();
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Google auth error:', error);
       setError('Error al iniciar sesión con Google');
     } finally {
