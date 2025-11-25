@@ -1,28 +1,45 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  /* CardioLearn Academy Design System - Enhanced Medical Palette */
+  /* CardioLearn Academy - One Medical Inspired Design System */
   
-  /* PRIMARY FOUNDATION COLORS - Blue, Red, White */
-  --color-primary-blue: #1e40af;        /* Medical Blue - Primary brand color */
-  --color-primary-red: #dc2626;         /* Cardiac Red - Primary alert/heart color */
-  --color-primary-white: #ffffff;       /* Pure White - Primary clean/background color */
+  /* ONE MEDICAL PRIMARY COLORS */
+  --color-primary-blue: #0891b2;        /* One Medical teal-blue - Primary brand */
+  --color-primary-blue-dark: #0e7490;   /* Darker shade for hover states */
+  --color-primary-blue-light: #06b6d4;  /* Lighter shade for backgrounds */
+  --color-primary-red: #dc2626;         /* Cardiac Red - Alert/heart color */
+  --color-primary-white: #ffffff;       /* Pure White - Clean backgrounds */
   
-  /* SECONDARY SUPPORTING COLORS */
-  --color-secondary-teal: #0891b2;      /* Surgical Teal - Technology & precision */
-  --color-secondary-gold: #f59e0b;      /* Achievement Gold - Success & certification */
-  --color-secondary-navy: #1e293b;      /* Deep Navy - Depth & stability */
-  --color-secondary-silver: #e5e7eb;    /* Medical Silver - Sophistication */
-  --color-secondary-purple: #7c3aed;    /* Medical Purple - Specialization */
+  /* ONE MEDICAL GRAY PALETTE */
+  --color-gray-50: #f9fafb;             /* One Medical light background */
+  --color-gray-100: #f3f4f6;            /* Subtle background */
+  --color-gray-200: #e5e7eb;            /* Light borders */
+  --color-gray-300: #d1d5db;            /* Medium borders */
+  --color-gray-400: #9ca3af;            /* Placeholder text */
+  --color-gray-500: #6b7280;            /* Secondary text */
+  --color-gray-600: #4b5563;            /* Primary text light */
+  --color-gray-700: #374151;            /* Primary text */
+  --color-gray-800: #1f2937;            /* Dark text */
+  --color-gray-900: #111827;            /* Darkest text */
   
-  /* Neutral Foundation */
-  --color-charcoal-black: #0f172a;      /* Charcoal Black - Deep Background */
-  --color-slate-gray: #334155;          /* Slate Gray - Secondary Background */
-  --color-medium-gray: #64748b;         /* Medium Gray - Text & Borders */
-  --color-light-gray: #94a3b8;          /* Light Gray - Subtle Elements */
+  /* SECONDARY COLORS */
+  --color-secondary-teal: #0891b2;      /* One Medical primary teal */
+  --color-secondary-teal-light: #06b6d4; /* Light teal variant */
+  --color-secondary-green: #10b981;     /* One Medical success green */
+  --color-secondary-green-light: #34d399; /* Light success green */
+  --color-secondary-gold: #f59e0b;      /* Achievement Gold */
+  --color-secondary-navy: #1e293b;      /* Deep Navy */
+  --color-secondary-silver: #e5e7eb;    /* Medical Silver */
+  --color-secondary-purple: #7c3aed;    /* Medical Purple */
+  
+  /* SEMANTIC COLORS */
+  --color-success: #10b981;             /* One Medical green */
+  --color-warning: #f59e0b;             /* One Medical amber */
+  --color-error: #ef4444;               /* One Medical red */
+  --color-info: #0891b2;                /* One Medical blue */
   
   /* Legacy Support (maintain compatibility) */
   --color-cardiac-red: var(--color-primary-red);
@@ -34,10 +51,10 @@
   --color-medical-purple: var(--color-secondary-purple);
   --color-accent-teal: var(--color-secondary-teal);
   --color-accent-gold: var(--color-secondary-gold);
-  --color-neutral-black: var(--color-charcoal-black);
-  --color-neutral-dark-grey: var(--color-slate-gray);
-  --color-neutral-medium-grey: var(--color-medium-gray);
-  --color-neutral-light-grey: var(--color-light-gray);
+  --color-neutral-black: var(--color-gray-900);
+  --color-neutral-dark-grey: var(--color-gray-700);
+  --color-neutral-medium-grey: var(--color-gray-500);
+  --color-neutral-light-grey: var(--color-gray-400);
   --color-neutral-white: var(--color-primary-white);
 }
 
@@ -52,43 +69,200 @@ html {
 }
 
 body {
-  font-family: 'DM Sans', 'Inter', sans-serif;
-  background-color: var(--color-neutral-black);
-  color: var(--color-neutral-white);
-  line-height: 1.5;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--color-gray-50);
+  color: var(--color-gray-800);
+  line-height: 1.6;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 @layer base {
   h1, h2, h3, h4, h5, h6 {
-    color: var(--color-neutral-white);
+    color: var(--color-gray-900);
     font-weight: 600;
+    letter-spacing: -0.025em;
   }
+  
+  h1 { @apply text-4xl leading-tight; }
+  h2 { @apply text-3xl leading-tight; }
+  h3 { @apply text-2xl leading-snug; }
+  h4 { @apply text-xl leading-snug; }
+  h5 { @apply text-lg leading-snug; }
+  h6 { @apply text-base leading-normal; }
 }
 
 @layer components {
-  .container-custom {
+  /* One Medical Container Styles */
+  .container-onemedical {
     @apply mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl;
   }
   
-  .btn-primary {
-    @apply bg-blue-600 text-white px-6 py-3 rounded-lg font-medium transition-all duration-200 hover:scale-105;
-    background-color: var(--color-primary-blue) !important;
+  .container-content {
+    @apply mx-auto px-4 sm:px-6 lg:px-8 max-w-content;
   }
   
-  .btn-secondary {
-    @apply bg-transparent border px-6 py-3 rounded-lg font-medium transition-all duration-200;
+  .container-form {
+    @apply mx-auto px-4 sm:px-6 lg:px-8 max-w-form;
+  }
+  
+  /* One Medical Button Styles */
+  .btn-onemedical-primary {
+    @apply inline-flex items-center justify-center px-6 py-3 text-base font-medium text-white transition-all duration-200 ease-in-out border border-transparent rounded-lg shadow-onemedical;
+    background-color: var(--color-primary-blue);
+  }
+  
+  .btn-onemedical-primary:hover {
+    background-color: var(--color-primary-blue-dark);
+    @apply transform -translate-y-0.5 shadow-onemedical-lg;
+  }
+  
+  .btn-onemedical-secondary {
+    @apply inline-flex items-center justify-center px-6 py-3 text-base font-medium transition-all duration-200 ease-in-out border rounded-lg shadow-sm;
+    color: var(--color-primary-blue);
+    border-color: var(--color-gray-300);
+    background-color: var(--color-primary-white);
+  }
+  
+  .btn-onemedical-secondary:hover {
+    background-color: var(--color-gray-50);
+    border-color: var(--color-primary-blue);
+    @apply transform -translate-y-0.5;
+  }
+  
+  .btn-onemedical-outline {
+    @apply inline-flex items-center justify-center px-6 py-3 text-base font-medium transition-all duration-200 ease-in-out border-2 rounded-lg bg-transparent;
     color: var(--color-primary-blue);
     border-color: var(--color-primary-blue);
   }
   
-  .btn-secondary:hover {
-    background-color: rgba(37, 99, 235, 0.1);
+  .btn-onemedical-outline:hover {
+    background-color: var(--color-primary-blue);
+    color: var(--color-primary-white);
+    @apply transform -translate-y-0.5;
+  }
+  
+  /* One Medical Form Styles */
+  .form-onemedical {
+    @apply space-y-6;
+  }
+  
+  .form-group-onemedical {
+    @apply space-y-2;
+  }
+  
+  .form-label-onemedical {
+    @apply block text-sm font-medium;
+    color: var(--color-gray-700);
+  }
+  
+  .form-input-onemedical {
+    @apply block w-full px-4 py-3 text-base border rounded-lg transition-all duration-200 ease-in-out;
+    background-color: var(--color-primary-white);
+    border-color: var(--color-gray-300);
+    color: var(--color-gray-900);
+  }
+  
+  .form-input-onemedical::placeholder {
+    color: var(--color-gray-400);
+  }
+  
+  .form-input-onemedical:focus {
+    outline: none;
+    border-color: var(--color-primary-blue);
+    @apply ring-2 ring-opacity-20;
+    ring-color: var(--color-primary-blue);
+    @apply shadow-onemedical;
+  }
+  
+  .form-textarea-onemedical {
+    @apply form-input-onemedical resize-y min-h-[120px];
+  }
+  
+  .form-select-onemedical {
+    @apply form-input-onemedical appearance-none bg-no-repeat bg-right pr-10;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 12px center;
+    background-size: 16px;
+  }
+  
+  .form-checkbox-onemedical {
+    @apply h-4 w-4 rounded border-2 text-primary-blue transition-all duration-200;
+    border-color: var(--color-gray-300);
+  }
+  
+  .form-checkbox-onemedical:checked {
+    background-color: var(--color-primary-blue);
+    border-color: var(--color-primary-blue);
+  }
+  
+  .form-radio-onemedical {
+    @apply h-4 w-4 border-2 text-primary-blue transition-all duration-200;
+    border-color: var(--color-gray-300);
+  }
+  
+  .form-radio-onemedical:checked {
+    background-color: var(--color-primary-blue);
+    border-color: var(--color-primary-blue);
+  }
+  
+  /* One Medical Card Styles */
+  .card-onemedical {
+    @apply bg-white rounded-lg shadow-onemedical border;
+    border-color: var(--color-gray-200);
+  }
+  
+  .card-onemedical-header {
+    @apply px-6 py-4 border-b;
+    border-color: var(--color-gray-200);
+  }
+  
+  .card-onemedical-body {
+    @apply px-6 py-4;
+  }
+  
+  .card-onemedical-footer {
+    @apply px-6 py-4 border-t bg-gray-50 rounded-b-lg;
+    border-color: var(--color-gray-200);
+  }
+  
+  /* One Medical Alert Styles */
+  .alert-onemedical {
+    @apply p-4 rounded-lg border-l-4 shadow-sm;
+  }
+  
+  .alert-onemedical-info {
+    @apply alert-onemedical bg-blue-50 border-blue-400 text-blue-800;
+  }
+  
+  .alert-onemedical-success {
+    @apply alert-onemedical bg-green-50 border-green-400 text-green-800;
+  }
+  
+  .alert-onemedical-warning {
+    @apply alert-onemedical bg-yellow-50 border-yellow-400 text-yellow-800;
+  }
+  
+  .alert-onemedical-error {
+    @apply alert-onemedical bg-red-50 border-red-400 text-red-800;
+  }
+  
+  /* Legacy Support */
+  .container-custom {
+    @apply container-onemedical;
+  }
+  
+  .btn-primary {
+    @apply btn-onemedical-primary;
+  }
+  
+  .btn-secondary {
+    @apply btn-onemedical-secondary;
   }
   
   .text-gradient {
-    @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(90deg, var(--color-primary-blue), var(--color-accent-teal));
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-blue to-secondary-teal-light;
   }
 }
 

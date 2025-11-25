@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useAuth } from '@/contexts/AuthContext';
 import { Search, Menu, X, Heart, User, LogOut } from 'lucide-react';
 import AuthModal from '@/components/auth/AuthModal';
+import CardiocriticalLogo from '@/components/ui/CardiocriticalLogo';
 
 const Header = () => {
   const { user, logout } = useAuth();
@@ -34,14 +35,9 @@ const Header = () => {
         <div className="container-custom">
           <div className="flex items-center justify-between py-4">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-2">
-              <div className="relative">
-                <Heart className="w-8 h-8 text-primary-blue" fill="currentColor" />
-                <div className="absolute inset-0 w-8 h-8">
-                  <div className="w-3 h-3 bg-primary-red rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
-                </div>
-              </div>
-              <span className="text-xl font-bold text-white">CardioLearn</span>
+            <Link href="/cardiolearn-complete" className="flex items-center gap-3">
+              <CardiocriticalLogo size="md" />
+              <span className="text-xl font-bold text-white">Cardiocritical Academy</span>
             </Link>
 
             {/* Desktop Search */}
